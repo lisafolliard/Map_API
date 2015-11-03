@@ -4,6 +4,10 @@ class UsersController < ApplicationController
   # GET /users
   def index
     @users = User.all
+    @hash = Gmaps4rails.build_markers(@users) do |user, marker|
+      marker.lat user.latitude
+      marker.lng user.longitude
+end
   end
 
   # GET /users/1
@@ -24,7 +28,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      redirect_to @user, notice: 'User was successfully created.'
+      redirect_to root_path, notice: 'User was successfully created.'
     else
       render :new
     end
@@ -33,7 +37,7 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   def update
     if @user.update(user_params)
-      redirect_to @user, notice: 'User was successfully updated.'
+      redirect_to root_path, notice: 'User was successfully updated.'
     else
       render :edit
     end
