@@ -14,6 +14,7 @@ gem 'devise'
 gem 'paperclip', '~> 4.1'
 gem 'rest-client'
 gem 'gmaps4rails'
+gem 'geocoder'
 
 group :development do
   gem 'byebug'
