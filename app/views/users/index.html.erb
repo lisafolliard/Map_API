@@ -28,8 +28,8 @@
           <td><%= user.description %></td>
           <td><%= user.link  %></td>
           <td><%= link_to 'Show', user %></td>
-          <td><%= link_to 'Edit', edit_user_path(user) %></td>
-          <td><span class='glyphicon glyphicon-trash'></span><%= link_to "Delete", user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to "<span class='glyphicon glyphicon-pencil'></span>".html_safe, edit_user_path(user) %></td>
+          <td><%= link_to "<span class='glyphicon glyphicon-trash'></span>".html_safe, user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>
     </tbody>
